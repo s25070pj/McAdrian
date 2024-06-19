@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Menu from './components/Menu';
+import OrderSummary from './components/OrderSummary';
+import Payment from './components/Payment';
+import Confirmation from './components/Confirmation';
+import Navigation from './components/Navigation';
+import { OrderProvider } from './context/OrderContext';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <OrderProvider>
+            <div className="App">
+                <Navigation />
+                <Routes>
+                    <Route path="/menu" element={<Menu />} />
+                    <Route path="/order-summary" element={<OrderSummary />} />
+                    <Route path="/payment" element={<Payment />} />
+                    <Route path="/confirmation" element={<Confirmation />} />
+                    <Route path="/" element={<Menu />} />
+                </Routes>
+            </div>
+        </OrderProvider>
+    );
 }
 
 export default App;
