@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { OrderContext } from '../context/OrderContext';
 import { Link } from 'react-router-dom';
 
 const OrderSummary = () => {
-    const { order } = useContext(OrderContext);
+    const { order, setEstimatedTime } = useContext(OrderContext);
+
+    useEffect(() => {
+        const estimatedTime = order.items.reduce((totalTime, item) => totalTime + item.preparationTime, 0);
+        setEstimatedTime(estimatedTime);
+    }, [order.items, setEstimatedTime]);
 
     const getTotal = () => {
-        return order.reduce((sum, item) => {
+        return order.items.reduce((sum, item) => {
             const extrasTotal = item.extras ? item.extras.reduce((extraSum, extra) => extraSum + extra.price, 0) : 0;
             return sum + item.price + extrasTotal;
         }, 0).toFixed(2);
@@ -16,7 +21,7 @@ const OrderSummary = () => {
         <div>
             <h1>Order Summary</h1>
             <ul>
-                {order.map((item, index) => (
+                {order.items.map((item, index) => (
                     <li key={index}>
                         {item.name} - ${item.price}
                         {item.extras && item.extras.length > 0 && (
@@ -32,6 +37,7 @@ const OrderSummary = () => {
                 ))}
             </ul>
             <h2>Total: ${getTotal()}</h2>
+            <h3>Estimated wait time: {order.estimatedTime} minutes</h3>
             <Link to="/payment">
                 <button>Proceed to Payment</button>
             </Link>

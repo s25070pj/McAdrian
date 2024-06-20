@@ -7,7 +7,11 @@
     "extras": [
       { "name": "Extra Cheese", "price": 0.5 },
       { "name": "Bacon", "price": 1.0 }
-    ]
+    ],
+    "ingredients": ["Beef", "Cheese", "Lettuce", "Bun"],
+    "allergens": ["Gluten", "Dairy"],
+    "nutrition": { "calories": 540, "protein": 25, "fat": 28, "carbs": 45 },
+    "preparationTime": 7
   },
   {
     "id": 2,
@@ -16,18 +20,30 @@
     "price": 3.99,
     "extras": [
       { "name": "Extra Sauce", "price": 0.3 }
-    ]
+    ],
+    "ingredients": ["Chicken", "Breading", "Oil"],
+    "allergens": ["Gluten"],
+    "nutrition": { "calories": 300, "protein": 20, "fat": 18, "carbs": 15 },
+    "preparationTime": 5
   },
   {
     "id": 3,
     "name": "French Fries",
     "description": "Golden and crispy fries",
-    "price": 2.99
+    "price": 2.99,
+    "ingredients": ["Potatoes", "Oil", "Salt"],
+    "allergens": [],
+    "nutrition": { "calories": 230, "protein": 3, "fat": 11, "carbs": 29 },
+    "preparationTime": 3
   },
   {
     "id": 4,
     "name": "Coke",
     "description": "Refreshing soda drink",
-    "price": 1.99
+    "price": 1.99,
+    "ingredients": ["Carbonated Water", "Sugar", "Caramel Color", "Phosphoric Acid", "Caffeine"],
+    "allergens": [],
+    "nutrition": { "calories": 140, "protein": 0, "fat": 0, "carbs": 39 },
+    "preparationTime": 1
   }
 ]
