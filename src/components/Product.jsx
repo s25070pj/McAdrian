@@ -24,16 +24,17 @@ const Product = ({ product }) => {
     };
 
     return (
-        <div className="product">
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
+        <div className="border p-4 rounded-lg shadow-lg">
+            <img src={`/path/to/images/${product.id}.png`} alt={product.name} className="w-full h-32 object-cover mb-2" />
+            <h2 className="text-lg font-semibold">{product.name}</h2>
+            <p className="text-gray-600">{product.description}</p>
+            <p className="font-bold">RM {product.price}</p>
             <p>Preparation time: {product.preparationTime} minutes</p>
 
             {product.allergens && product.allergens.length > 0 && (
                 <div>
           <span data-tooltip-id={`allergen-${product.id}`} style={{ cursor: 'pointer' }}>
-            <img src="/path/to/icon.png" alt="Allergens" />
+            <img src="/path/to/icon.png" alt="Allergens" className="w-6 h-6 inline" />
           </span>
                     <Tooltip id={`allergen-${product.id}`} place="top" effect="solid">
                         <h3>Allergens</h3>
@@ -62,7 +63,9 @@ const Product = ({ product }) => {
                     ))}
                 </div>
             )}
-            <button onClick={handleAddToOrder}>Add to Order</button>
+            <button className="bg-blue-500 text-white p-2 rounded-lg mt-2" onClick={handleAddToOrder}>
+                Add to Order
+            </button>
         </div>
     );
 };

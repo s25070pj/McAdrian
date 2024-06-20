@@ -57,3 +57,42 @@ button:hover {
   border-radius: 4px;
   padding: 10px;
 }
+.App {
+  font-family: 'Arial, sans-serif';
+}
+
+header {
+  background-color: #ffc107;
+  padding: 1rem;
+}
+
+header img {
+  max-width: 150px;
+}
+
+aside {
+  background-color: #f8f9fa;
+}
+
+footer {
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
