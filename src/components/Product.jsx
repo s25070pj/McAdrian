@@ -1,20 +1,48 @@
-import React, { useContext, useRef, useLayoutEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { OrderContext } from '../context/OrderContext';
 
 const Product = ({ product }) => {
     const { addToOrder } = useContext(OrderContext);
-    const productRef = useRef();
+    const [selectedExtras, setSelectedExtras] = useState([]);
 
-    useLayoutEffect(() => {
-        console.log('Product component mounted or updated');
-    }, []);
+    const handleExtraChange = (extra, isChecked) => {
+        if (isChecked) {
+            setSelectedExtras([...selectedExtras, extra]);
+        } else {
+            setSelectedExtras(selectedExtras.filter((e) => e.name !== extra.name));
+        }
+    };
+
+    const handleAddToOrder = () => {
+        const productWithExtras = {
+            ...product,
+            extras: selectedExtras,
+        };
+        addToOrder(productWithExtras);
+    };
 
     return (
-        <div ref={productRef}>
+        <div>
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
-            <button onClick={() => addToOrder(product)}>Add to Order</button>
+            {product.extras && (
+                <div>
+                    <h3>Extras</h3>
+                    {product.extras.map((extra, index) => (
+                        <div key={index}>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    onChange={(e) => handleExtraChange(extra, e.target.checked)}
+                                />
+                                {extra.name} (+${extra.price})
+                            </label>
+                        </div>
+                    ))}
+                </div>
+            )}
+            <button onClick={handleAddToOrder}>Add to Order</button>
         </div>
     );
 };

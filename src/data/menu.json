@@ -3,13 +3,20 @@
     "id": 1,
     "name": "Big Mac",
     "description": "A delicious burger with two beef patties",
-    "price": 5.99
+    "price": 5.99,
+    "extras": [
+      { "name": "Extra Cheese", "price": 0.5 },
+      { "name": "Bacon", "price": 1.0 }
+    ]
   },
   {
     "id": 2,
     "name": "Chicken Nuggets",
     "description": "Crispy chicken nuggets",
-    "price": 3.99
+    "price": 3.99,
+    "extras": [
+      { "name": "Extra Sauce", "price": 0.3 }
+    ]
   },
   {
     "id": 3,
