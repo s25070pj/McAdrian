@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { OrderContext } from '../context/OrderContext';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'; // Upewnij się, że importujesz styl dla dymków
 
 const Product = ({ product }) => {
     const { addToOrder } = useContext(OrderContext);
@@ -22,34 +24,28 @@ const Product = ({ product }) => {
     };
 
     return (
-        <div>
+        <div className="product">
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
             <p>Preparation time: {product.preparationTime} minutes</p>
-            <div>
-                <h3>Ingredients</h3>
-                <ul>
-                    {product.ingredients.map((ingredient, index) => (
-                        <li key={index}>{ingredient}</li>
-                    ))}
-                </ul>
-            </div>
-            <div>
-                <h3>Allergens</h3>
-                <ul>
-                    {product.allergens.map((allergen, index) => (
-                        <li key={index}>{allergen}</li>
-                    ))}
-                </ul>
-            </div>
-            <div>
-                <h3>Nutrition Facts</h3>
-                <p>Calories: {product.nutrition.calories}</p>
-                <p>Protein: {product.nutrition.protein}g</p>
-                <p>Fat: {product.nutrition.fat}g</p>
-                <p>Carbs: {product.nutrition.carbs}g</p>
-            </div>
+
+            {product.allergens && product.allergens.length > 0 && (
+                <div>
+          <span data-tooltip-id={`allergen-${product.id}`} style={{ cursor: 'pointer' }}>
+            <img src="/path/to/icon.png" alt="Allergens" />
+          </span>
+                    <Tooltip id={`allergen-${product.id}`} place="top" effect="solid">
+                        <h3>Allergens</h3>
+                        <ul>
+                            {product.allergens.map((allergen, index) => (
+                                <li key={index}>{allergen}</li>
+                            ))}
+                        </ul>
+                    </Tooltip>
+                </div>
+            )}
+
             {product.extras && (
                 <div>
                     <h3>Extras</h3>

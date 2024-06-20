@@ -40,3 +40,20 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.product {
+  position: relative;
+}
+
+.product img {
+  width: 24px;
+  height: 24px;
+}
+
+.react-tooltip {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
