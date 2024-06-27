@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { OrderContext } from '../context/OrderContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import menuData from '../data/menu.json';
 
 const OrderSummary = () => {
@@ -48,14 +48,13 @@ const OrderSummary = () => {
                             ))}
                         </ul>
                         <h2 className="text-xl font-bold mt-4 text-center">Total: PLN {getTotal()}</h2>
+                        <h3 className="text-lg mt-2 text-center">Estimated wait time: {order.estimatedTime} minutes</h3>
                         <div className="mt-6 flex justify-center space-x-4">
-                            <Link to="/payment">
-                                <button className="bg-green-500 text-white p-2 rounded-lg">Proceed to Payment</button>
-                            </Link>
+                            <button className="bg-green-500 text-white p-2 rounded-lg" onClick={() => navigate('/payment')}>
+                                Proceed to Payment
+                            </button>
                             <button className="bg-red-500 text-white p-2 rounded-lg" onClick={handleCancelOrder}>Cancel Order</button>
-                            <Link to="/">
-                                <button className="bg-yellow-500 text-white p-2 rounded-lg">Back to Menu</button>
-                            </Link>
+                            <button className="bg-yellow-500 text-white p-2 rounded-lg" onClick={() => navigate('/')}>Back to Menu</button>
                         </div>
                     </div>
                     <div>
