@@ -1,5 +1,5 @@
-// Cart.jsx
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { OrderContext } from '../context/OrderContext';
 
 const Cart = () => {
@@ -33,7 +33,9 @@ const Cart = () => {
                 ))}
             </ul>
             <h2 className="font-bold">Total: PLN {getTotal()}</h2>
-            <button className="bg-green-500 text-white p-2 rounded-lg mt-4">Proceed to Order Summary</button>
+            <Link to="/order-summary">
+                <button className="bg-green-500 text-white p-2 rounded-lg mt-4">Proceed to Order Summary</button>
+            </Link>
         </div>
     );
 };

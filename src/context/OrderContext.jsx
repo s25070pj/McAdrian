@@ -8,6 +8,8 @@ const orderReducer = (state, action) => {
             return { ...state, items: [...state.items, action.product] };
         case 'SET_ESTIMATED_TIME':
             return { ...state, estimatedTime: action.time };
+        case 'REMOVE_FROM_ORDER':
+            return { ...state, items: state.items.filter((_, index) => index !== action.index) };
         case 'CLEAR_ORDER':
             return { ...state, items: [], estimatedTime: 0 };
         default:
@@ -26,12 +28,16 @@ const OrderProvider = ({ children }) => {
         dispatch({ type: 'SET_ESTIMATED_TIME', time });
     }, []);
 
+    const removeFromOrder = useCallback((index) => {
+        dispatch({ type: 'REMOVE_FROM_ORDER', index });
+    }, []);
+
     const clearOrder = useCallback(() => {
         dispatch({ type: 'CLEAR_ORDER' });
     }, []);
 
     return (
-        <OrderContext.Provider value={{ order, addToOrder, setEstimatedTime, clearOrder }}>
+        <OrderContext.Provider value={{ order, addToOrder, setEstimatedTime, removeFromOrder, clearOrder }}>
             {children}
         </OrderContext.Provider>
     );
