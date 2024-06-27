@@ -1,20 +1,13 @@
 import React from 'react';
-
-const categories = [
-    { name: 'All', icon: '🍔' },
-    { name: 'Burgers', icon: '🍔' },
-    { name: 'Drinks', icon: '🥤' },
-    { name: 'Sides', icon: '🍟' },
-    { name: 'Desserts', icon: '🍦' }
-];
+import categoriesData from '../data/categories.json';
 
 const Navigation = ({ setSelectedCategory }) => (
     <nav>
         <ul className="space-y-4">
-            {categories.map((category, index) => (
+            {categoriesData.map((category, index) => (
                 <li
                     key={index}
-                    className="flex items-center space-x-2 cursor-pointer"
+                    className="flex items-center space-x-2 cursor-pointer border p-2 rounded mb-2"
                     onClick={() => setSelectedCategory(category.name === 'All' ? '' : category.name.toLowerCase())}
                 >
                     <span>{category.icon}</span>

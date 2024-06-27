@@ -19,12 +19,14 @@ const Menu = ({ selectedCategory }) => {
     }, [filteredMenu]);
 
     return (
-        <div>
-            <h1 className="text-2xl font-bold mb-4">All Time Favourites</h1>
-            <div className="grid grid-cols-3 gap-4">
-                {sortedMenu.map((item) => (
-                    <Product key={item.id} product={item} />
-                ))}
+        <div className="flex">
+            <div className="w-3/4">
+                <h1 className="text-2xl font-bold mb-4">All Time Favourites</h1>
+                <div className="grid grid-cols-3 gap-4">
+                    {sortedMenu.map((item) => (
+                        <Product key={item.id} product={item} />
+                    ))}
+                </div>
             </div>
         </div>
     );

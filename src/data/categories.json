@@ -1,0 +1,22 @@
+[
+  {
+    "name": "All",
+    "icon": "🍔"
+  },
+  {
+    "name": "Burgers",
+    "icon": "🍔"
+  },
+  {
+    "name": "Drinks",
+    "icon": "🥤"
+  },
+  {
+    "name": "Sides",
+    "icon": "🍟"
+  },
+  {
+    "name": "Desserts",
+    "icon": "🍦"
+  }
+]

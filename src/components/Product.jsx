@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { OrderContext } from '../context/OrderContext';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css'; // Upewnij się, że importujesz styl dla dymków
+import 'react-tooltip/dist/react-tooltip.css';
 
 const Product = ({ product }) => {
     const { addToOrder } = useContext(OrderContext);
@@ -25,17 +25,17 @@ const Product = ({ product }) => {
 
     return (
         <div className="border p-4 rounded-lg shadow-lg">
-            <img src={`/path/to/images/${product.id}.png`} alt={product.name} className="w-full h-32 object-cover mb-2" />
+            <img src={`/images/${product.id}.png`} alt={product.name} className="w-full h-32 object-cover mb-2" />
             <h2 className="text-lg font-semibold">{product.name}</h2>
             <p className="text-gray-600">{product.description}</p>
-            <p className="font-bold">RM {product.price}</p>
+            <p className="font-bold">PLN {product.price.toFixed(2)}</p>
             <p>Preparation time: {product.preparationTime} minutes</p>
 
             {product.allergens && product.allergens.length > 0 && (
                 <div>
-          <span data-tooltip-id={`allergen-${product.id}`} style={{ cursor: 'pointer' }}>
-            <img src="/path/to/icon.png" alt="Allergens" className="w-6 h-6 inline" />
-          </span>
+                    <span data-tooltip-id={`allergen-${product.id}`} style={{ cursor: 'pointer' }}>
+                        <img src="/path/to/icon.png" alt="Allergens" className="w-6 h-6 inline" />
+                    </span>
                     <Tooltip id={`allergen-${product.id}`} place="top" effect="solid">
                         <h3>Allergens</h3>
                         <ul>
@@ -57,7 +57,7 @@ const Product = ({ product }) => {
                                     type="checkbox"
                                     onChange={(e) => handleExtraChange(extra, e.target.checked)}
                                 />
-                                {extra.name} (+${extra.price})
+                                {extra.name} (+PLN {extra.price.toFixed(2)})
                             </label>
                         </div>
                     ))}

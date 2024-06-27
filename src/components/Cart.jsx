@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+// Cart.jsx
+import React, { useContext } from 'react';
 import { OrderContext } from '../context/OrderContext';
 
-const OrderSummary = () => {
-    const { order, setEstimatedTime } = useContext(OrderContext);
-
-    useEffect(() => {
-        const estimatedTime = order.items.reduce((totalTime, item) => totalTime + item.preparationTime, 0);
-        setEstimatedTime(estimatedTime);
-    }, [order.items, setEstimatedTime]);
+const Cart = () => {
+    const { order, removeFromOrder } = useContext(OrderContext);
 
     const getTotal = () => {
         return order.items.reduce((sum, item) => {
@@ -17,29 +13,29 @@ const OrderSummary = () => {
     };
 
     return (
-        <div>
-            <h1>Order Summary</h1>
+        <div className="p-4 border rounded-lg shadow-lg h-full overflow-y-auto">
+            <h2 className="text-xl font-bold mb-4">Your Order</h2>
             <ul>
                 {order.items.map((item, index) => (
-                    <li key={index}>
-                        {item.name} - PLN {item.price.toFixed(2)}
+                    <li key={index} className="border-b mb-2 pb-2">
+                        {item.name} - PLN {item.price}
                         {item.extras && item.extras.length > 0 && (
                             <ul>
                                 {item.extras.map((extra, extraIndex) => (
                                     <li key={extraIndex}>
-                                        {extra.name} (+PLN {extra.price.toFixed(2)})
+                                        {extra.name} (+PLN {extra.price})
                                     </li>
                                 ))}
                             </ul>
                         )}
+                        <button className="bg-red-500 text-white p-1 rounded mt-2" onClick={() => removeFromOrder(index)}>Remove</button>
                     </li>
                 ))}
             </ul>
-            <h2>Total: PLN {getTotal()}</h2>
-            <h3>Estimated wait time: {order.estimatedTime} minutes</h3>
-            <button>Proceed to Payment</button>
+            <h2 className="font-bold">Total: PLN {getTotal()}</h2>
+            <button className="bg-green-500 text-white p-2 rounded-lg mt-4">Proceed to Order Summary</button>
         </div>
     );
 };
 
-export default OrderSummary;
+export default Cart;
