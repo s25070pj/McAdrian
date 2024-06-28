@@ -2,11 +2,10 @@ import React from 'react';
 import useFetch from '../hooks/useFetch';
 
 const Navigation = ({ setSelectedCategory }) => {
-    const { data: categories, loading } = useFetch('http://localhost:8080/api/categories');
+    const { data: categories, loading, error } = useFetch('http://localhost:8080/api/categories');
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     return (
         <nav>

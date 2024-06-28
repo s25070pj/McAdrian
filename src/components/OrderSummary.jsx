@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch';
 
 const OrderSummary = () => {
     const { order, removeFromOrder, addToOrder, clearOrder } = useContext(OrderContext);
-    const { data: recommendedProducts, loading } = useFetch('http://localhost:8080/api/menu');
+    const { data: recommendedProducts, loading, error } = useFetch('http://localhost:8080/api/menu');
     const navigate = useNavigate();
 
     const getTotal = () => {
@@ -22,6 +22,10 @@ const OrderSummary = () => {
 
     if (loading) {
         return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
     }
 
     const recommendedProductsToShow = recommendedProducts.slice(0, 3);
