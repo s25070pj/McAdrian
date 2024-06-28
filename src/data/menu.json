@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Big Mac",
+    "name": "Special Burger",
     "description": "A delicious burger with two beef patties",
     "price": 5.99,
     "extras": [
