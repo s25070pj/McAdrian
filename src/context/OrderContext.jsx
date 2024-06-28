@@ -9,9 +9,11 @@ const orderReducer = (state, action) => {
         case 'REMOVE_FROM_ORDER':
             return { ...state, items: state.items.filter((_, index) => index !== action.index) };
         case 'CLEAR_ORDER':
-            return { items: [], estimatedTime: 0 };
+            return { items: [], estimatedTime: 0, orderType: '' };
         case 'SET_ESTIMATED_TIME':
             return { ...state, estimatedTime: action.time };
+        case 'SET_ORDER_TYPE':
+            return { ...state, orderType: action.orderType };
         default:
             return state;
     }
@@ -30,7 +32,7 @@ const calculateEstimatedTime = (items) => {
 };
 
 const OrderProvider = ({ children }) => {
-    const [order, dispatch] = useReducer(orderReducer, { items: [], estimatedTime: 0 });
+    const [order, dispatch] = useReducer(orderReducer, { items: [], estimatedTime: 0, orderType: '' });
 
     const addToOrder = useCallback((product) => {
         dispatch({ type: 'ADD_TO_ORDER', product });
@@ -44,13 +46,17 @@ const OrderProvider = ({ children }) => {
         dispatch({ type: 'CLEAR_ORDER' });
     }, []);
 
+    const setOrderType = useCallback((orderType) => {
+        dispatch({ type: 'SET_ORDER_TYPE', orderType });
+    }, []);
+
     useEffect(() => {
         const estimatedTime = calculateEstimatedTime(order.items);
         dispatch({ type: 'SET_ESTIMATED_TIME', time: estimatedTime });
     }, [order.items]);
 
     return (
-        <OrderContext.Provider value={{ order, addToOrder, removeFromOrder, clearOrder }}>
+        <OrderContext.Provider value={{ order, addToOrder, removeFromOrder, clearOrder, setOrderType }}>
             {children}
         </OrderContext.Provider>
     );

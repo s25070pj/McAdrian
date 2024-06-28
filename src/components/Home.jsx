@@ -1,11 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { OrderContext } from '../context/OrderContext';
 
 const Home = () => {
     const navigate = useNavigate();
+    const { setOrderType } = useContext(OrderContext);
 
     const handleChoice = (choice) => {
-        localStorage.setItem('orderType', choice);
+        setOrderType(choice);
         navigate('/menu');
     };
 
@@ -17,13 +20,13 @@ const Home = () => {
                 <div className="flex justify-around">
                     <button
                         className="bg-green-500 text-white p-4 rounded-lg"
-                        onClick={() => handleChoice('dine-in')}
+                        onClick={() => handleChoice('Dine In')}
                     >
                         Dine In
                     </button>
                     <button
                         className="bg-blue-500 text-white p-4 rounded-lg"
-                        onClick={() => handleChoice('takeaway')}
+                        onClick={() => handleChoice('Takeaway')}
                     >
                         Takeaway
                     </button>

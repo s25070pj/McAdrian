@@ -44,6 +44,7 @@ const Confirmation = () => {
                     <p><strong>Order Number:</strong> {orderNumber}</p>
                     <p><strong>Date:</strong> {currentDate}</p>
                     <p><strong>Estimated Wait Time:</strong> {order.estimatedTime} minutes</p>
+                    <p><strong>Order Type:</strong> {order.orderType}</p>
                     <h2 className="text-2xl font-bold mt-4 mb-2">Order Details</h2>
                     <ul className="divide-y divide-gray-200">
                         {order.items.map((item, index) => (
