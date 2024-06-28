@@ -29,7 +29,7 @@ const OrderSummary = () => {
                     <ul className="divide-y divide-gray-200 mb-4">
                         {order.items.map((item, index) => (
                             <li key={index} className="py-2 flex justify-between items-center">
-                                <div>
+                                <div className="flex-1">
                                     <h3 className="font-bold">{item.name}</h3>
                                     <p className="text-gray-600">PLN {item.price.toFixed(2)}</p>
                                     {item.extras && item.extras.length > 0 && (
@@ -49,7 +49,11 @@ const OrderSummary = () => {
                     <h2 className="text-xl font-bold mt-4 text-center">Total: PLN {getTotal()}</h2>
                     <h3 className="text-lg mt-2 text-center">Estimated wait time: {order.estimatedTime} minutes</h3>
                     <div className="mt-6 flex justify-center space-x-4">
-                        <button className="bg-green-500 text-white p-2 rounded-lg" onClick={() => navigate('/payment')}>
+                        <button
+                            className="bg-green-500 text-white p-2 rounded-lg"
+                            onClick={() => navigate('/payment')}
+                            disabled={order.items.length === 0}
+                        >
                             Proceed to Payment
                         </button>
                         <button className="bg-red-500 text-white p-2 rounded-lg" onClick={handleCancelOrder}>Cancel Order</button>

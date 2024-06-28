@@ -17,24 +17,31 @@ const Cart = () => {
             <h2 className="text-xl font-bold mb-4">Your Order</h2>
             <ul>
                 {order.items.map((item, index) => (
-                    <li key={index} className="border-b mb-2 pb-2">
-                        {item.name} - PLN {item.price}
-                        {item.extras && item.extras.length > 0 && (
-                            <ul>
-                                {item.extras.map((extra, extraIndex) => (
-                                    <li key={extraIndex}>
-                                        {extra.name} (+PLN {extra.price})
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                        <button className="bg-red-500 text-white p-1 rounded mt-2" onClick={() => removeFromOrder(index)}>Remove</button>
+                    <li key={index} className="border-b mb-2 pb-2 flex justify-between items-center">
+                        <div>
+                            {item.name} - PLN {item.price}
+                            {item.extras && item.extras.length > 0 && (
+                                <ul className="ml-4 mt-2">
+                                    {item.extras.map((extra, extraIndex) => (
+                                        <li key={extraIndex}>
+                                            {extra.name} (+PLN {extra.price})
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                        <button className="bg-red-500 text-white p-1 rounded ml-4" onClick={() => removeFromOrder(index)}>Remove</button>
                     </li>
                 ))}
             </ul>
             <h2 className="font-bold">Total: PLN {getTotal()}</h2>
             <Link to="/order-summary">
-                <button className="bg-green-500 text-white p-2 rounded-lg mt-4">Proceed to Order Summary</button>
+                <button
+                    className="bg-green-500 text-white p-2 rounded-lg mt-4"
+                    disabled={order.items.length === 0}
+                >
+                    Proceed to Order Summary
+                </button>
             </Link>
         </div>
     );
