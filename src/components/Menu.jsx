@@ -1,22 +1,19 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React from 'react';
 import Product from './Product';
-import menuData from '../data/menu.json';
+import useFetch from '../hooks/useFetch';
 
 const Menu = ({ selectedCategory }) => {
-    const [menu, setMenu] = useState([]);
+    const { data: menu, loading } = useFetch('http://localhost:8080/api/menu');
 
-    useEffect(() => {
-        setMenu(menuData);
-    }, []);
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-    const filteredMenu = useMemo(() => {
-        if (!selectedCategory) return menu;
-        return menu.filter(item => item.category.toLowerCase() === selectedCategory.toLowerCase());
-    }, [menu, selectedCategory]);
+    const filteredMenu = selectedCategory
+        ? menu.filter(item => item.category.toLowerCase() === selectedCategory.toLowerCase())
+        : menu;
 
-    const sortedMenu = useMemo(() => {
-        return filteredMenu.sort((a, b) => a.name.localeCompare(b.name));
-    }, [filteredMenu]);
+    const sortedMenu = filteredMenu.sort((a, b) => a.name.localeCompare(b.name));
 
     return (
         <div className="flex">
