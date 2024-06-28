@@ -22,27 +22,27 @@ const OrderSummary = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100 p-20">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl p-20">
+        <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
                 <h1 className="text-3xl font-bold mb-6 text-center">Order Summary</h1>
                 <div className="text-left">
                     <ul className="divide-y divide-gray-200 mb-4">
                         {order.items.map((item, index) => (
-                            <li key={index} className="py-2 flex justify-between">
+                            <li key={index} className="py-2 flex justify-between items-center">
                                 <div>
                                     <h3 className="font-bold">{item.name}</h3>
-                                    <p className="text-gray-600">PLN {item.price}</p>
+                                    <p className="text-gray-600">PLN {item.price.toFixed(2)}</p>
                                     {item.extras && item.extras.length > 0 && (
                                         <ul className="ml-4 mt-2">
                                             {item.extras.map((extra, extraIndex) => (
                                                 <li key={extraIndex} className="text-gray-500">
-                                                    {extra.name} (+PLN {extra.price})
+                                                    {extra.name} (+PLN {extra.price.toFixed(2)})
                                                 </li>
                                             ))}
                                         </ul>
                                     )}
                                 </div>
-                                <button className="bg-red-500 text-white p-1 rounded" onClick={() => removeFromOrder(index)}>Remove</button>
+                                <button className="bg-red-500 text-white p-1 rounded ml-4" onClick={() => removeFromOrder(index)}>Remove</button>
                             </li>
                         ))}
                     </ul>
@@ -61,7 +61,7 @@ const OrderSummary = () => {
                             <div key={product.id} className="border p-4 rounded-lg shadow-lg">
                                 <h3 className="font-bold">{product.name}</h3>
                                 <p>{product.description}</p>
-                                <p className="font-bold">PLN {product.price}</p>
+                                <p className="font-bold">PLN {product.price.toFixed(2)}</p>
                                 <button className="bg-blue-500 text-white p-2 rounded-lg mt-2" onClick={() => addToOrder(product)}>Add to Order</button>
                             </div>
                         ))}
