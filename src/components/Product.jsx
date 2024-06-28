@@ -23,6 +23,12 @@ const Product = ({ product }) => {
         addToOrder(productWithExtras);
     };
 
+    const isBreakfastTime = () => {
+        const now = new Date();
+        const hours = now.getHours();
+        return hours >= 5 && hours < 11;
+    };
+
     return (
         <div className="border p-4 rounded-lg shadow-lg">
             <img src={`/images/${product.id}.png`} alt={product.name} className="w-full h-32 object-cover mb-2" />
@@ -63,9 +69,16 @@ const Product = ({ product }) => {
                     ))}
                 </div>
             )}
-            <button className="bg-blue-500 text-white p-2 rounded-lg mt-2" onClick={handleAddToOrder}>
-                Add to Order
-            </button>
+            {(product.category.toLowerCase() !== 'breakfast' || isBreakfastTime()) ? (
+                <button className="bg-blue-500 text-white p-2 rounded-lg mt-2" onClick={handleAddToOrder}>
+                    Add to Order
+                </button>
+            ) : (
+                <button className="bg-red-500 text-gray p-2 rounded-lg mt-2" >
+                    Breakfast available from 5:00 to 11:00
+                </button>
+            )}
+
         </div>
     );
 };

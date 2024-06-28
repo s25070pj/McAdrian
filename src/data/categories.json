@@ -1,22 +1,10 @@
 [
-  {
-    "name": "All",
-    "icon": "🍔"
-  },
-  {
-    "name": "Burgers",
-    "icon": "🍔"
-  },
-  {
-    "name": "Drinks",
-    "icon": "🥤"
-  },
-  {
-    "name": "Sides",
-    "icon": "🍟"
-  },
-  {
-    "name": "Desserts",
-    "icon": "🍦"
-  }
+  { "name": "All", "icon": "🍽️" },
+  { "name": "Burgers", "icon": "🍔" },
+  { "name": "Drinks", "icon": "🥤" },
+  { "name": "Sides", "icon": "🍟" },
+  { "name": "Desserts", "icon": "🍦" },
+  { "name": "Sandwiches", "icon": "🥪" },
+  { "name": "Salads", "icon": "🥗" },
+  { "name": "Breakfast", "icon": "🥞" }
 ]

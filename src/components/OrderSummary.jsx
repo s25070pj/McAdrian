@@ -22,8 +22,8 @@ const OrderSummary = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
+        <div className="flex items-center justify-center min-h-screen bg-gray-100 p-20">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl p-20">
                 <h1 className="text-3xl font-bold mb-6 text-center">Order Summary</h1>
                 <div className="text-left">
                     <ul className="divide-y divide-gray-200 mb-4">

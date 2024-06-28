@@ -10,7 +10,6 @@
     ],
     "ingredients": ["Beef", "Cheese", "Lettuce", "Bun"],
     "allergens": ["Gluten", "Dairy"],
-    "preparationTime": 7,
     "category": "Burgers"
   },
   {
@@ -23,7 +22,6 @@
     ],
     "ingredients": ["Chicken", "Breading", "Oil"],
     "allergens": ["Gluten"],
-    "preparationTime": 5,
     "category": "Sides"
   },
   {
@@ -33,7 +31,6 @@
     "price": 2.99,
     "ingredients": ["Potatoes", "Oil", "Salt"],
     "allergens": [],
-    "preparationTime": 3,
     "category": "Sides"
   },
   {
@@ -43,7 +40,305 @@
     "price": 1.99,
     "ingredients": ["Carbonated Water", "Sugar", "Caramel Color", "Phosphoric Acid", "Caffeine"],
     "allergens": [],
-    "preparationTime": 1,
     "category": "Drinks"
+  },
+  {
+    "id": 5,
+    "name": "Cheeseburger",
+    "description": "A classic cheeseburger with a single beef patty",
+    "price": 4.99,
+    "extras": [
+      { "name": "Extra Cheese", "price": 0.5 },
+      { "name": "Bacon", "price": 1.0 }
+    ],
+    "ingredients": ["Beef", "Cheese", "Lettuce", "Bun"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Burgers"
+  },
+  {
+    "id": 6,
+    "name": "Spicy Chicken Sandwich",
+    "description": "A spicy chicken sandwich with lettuce and mayo",
+    "price": 5.49,
+    "extras": [
+      { "name": "Extra Sauce", "price": 0.3 },
+      { "name": "Cheese", "price": 0.5 }
+    ],
+    "ingredients": ["Chicken", "Lettuce", "Bun", "Spicy Sauce"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Burgers"
+  },
+  {
+    "id": 7,
+    "name": "Garden Salad",
+    "description": "A fresh garden salad with mixed greens and vegetables",
+    "price": 4.49,
+    "extras": [
+      { "name": "Chicken", "price": 2.0 },
+      { "name": "Bacon", "price": 1.0 }
+    ],
+    "ingredients": ["Lettuce", "Tomato", "Cucumber", "Carrot", "Dressing"],
+    "allergens": ["None"],
+    "category": "Salads"
+  },
+  {
+    "id": 8,
+    "name": "Caesar Salad",
+    "description": "A classic Caesar salad with romaine lettuce and croutons",
+    "price": 4.99,
+    "extras": [
+      { "name": "Chicken", "price": 2.0 },
+      { "name": "Extra Dressing", "price": 0.5 }
+    ],
+    "ingredients": ["Romaine Lettuce", "Croutons", "Caesar Dressing", "Parmesan Cheese"],
+    "allergens": ["Gluten", "Dairy", "Fish"],
+    "category": "Salads"
+  },
+  {
+    "id": 9,
+    "name": "Fish Sandwich",
+    "description": "A sandwich with a crispy fish fillet",
+    "price": 5.99,
+    "extras": [
+      { "name": "Extra Tartar Sauce", "price": 0.5 },
+      { "name": "Cheese", "price": 0.5 }
+    ],
+    "ingredients": ["Fish Fillet", "Lettuce", "Bun", "Tartar Sauce"],
+    "allergens": ["Gluten", "Fish", "Dairy"],
+    "category": "Sandwiches"
+  },
+  {
+    "id": 10,
+    "name": "Grilled Chicken Wrap",
+    "description": "A wrap with grilled chicken and fresh vegetables",
+    "price": 5.49,
+    "extras": [
+      { "name": "Extra Sauce", "price": 0.3 }
+    ],
+    "ingredients": ["Chicken", "Lettuce", "Tomato", "Wrap", "Ranch Dressing"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Wraps"
+  },
+  {
+    "id": 11,
+    "name": "Veggie Wrap",
+    "description": "A wrap filled with fresh vegetables and hummus",
+    "price": 4.99,
+    "extras": [
+      { "name": "Extra Hummus", "price": 0.5 }
+    ],
+    "ingredients": ["Lettuce", "Tomato", "Cucumber", "Wrap", "Hummus"],
+    "allergens": ["Gluten"],
+    "category": "Wraps"
+  },
+  {
+    "id": 12,
+    "name": "BBQ Chicken Pizza",
+    "description": "A pizza topped with BBQ chicken and mozzarella cheese",
+    "price": 8.99,
+    "extras": [
+      { "name": "Extra Cheese", "price": 1.0 },
+      { "name": "Bacon", "price": 1.5 }
+    ],
+    "ingredients": ["Chicken", "BBQ Sauce", "Mozzarella", "Pizza Dough"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Pizza"
+  },
+  {
+    "id": 13,
+    "name": "Margherita Pizza",
+    "description": "A classic pizza with tomato, mozzarella, and basil",
+    "price": 7.99,
+    "extras": [
+      { "name": "Extra Cheese", "price": 1.0 }
+    ],
+    "ingredients": ["Tomato", "Mozzarella", "Basil", "Pizza Dough"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Pizza"
+  },
+  {
+    "id": 14,
+    "name": "Chocolate Shake",
+    "description": "A creamy chocolate milkshake",
+    "price": 2.99,
+    "ingredients": ["Milk", "Chocolate Syrup", "Ice Cream"],
+    "allergens": ["Dairy"],
+    "category": "Drinks"
+  },
+  {
+    "id": 15,
+    "name": "Vanilla Shake",
+    "description": "A creamy vanilla milkshake",
+    "price": 2.99,
+    "ingredients": ["Milk", "Vanilla Syrup", "Ice Cream"],
+    "allergens": ["Dairy"],
+    "category": "Drinks"
+  },
+  {
+    "id": 16,
+    "name": "Cheese Pizza",
+    "description": "A classic cheese pizza with mozzarella",
+    "price": 7.49,
+    "extras": [
+      { "name": "Extra Cheese", "price": 1.0 }
+    ],
+    "ingredients": ["Mozzarella", "Tomato Sauce", "Pizza Dough"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Pizza"
+  },
+  {
+    "id": 17,
+    "name": "Apple Pie",
+    "description": "A warm apple pie with a flaky crust",
+    "price": 3.49,
+    "extras": [
+      { "name": "Vanilla Ice Cream", "price": 1.0 }
+    ],
+    "ingredients": ["Apples", "Sugar", "Flour", "Butter"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Desserts"
+  },
+  {
+    "id": 18,
+    "name": "Chocolate Chip Cookie",
+    "description": "A freshly baked chocolate chip cookie",
+    "price": 1.49,
+    "ingredients": ["Flour", "Sugar", "Butter", "Chocolate Chips"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Desserts"
+  },
+  {
+    "id": 19,
+    "name": "Grilled Cheese Sandwich",
+    "description": "A grilled sandwich with melted cheese",
+    "price": 3.99,
+    "extras": [
+      { "name": "Bacon", "price": 1.0 }
+    ],
+    "ingredients": ["Bread", "Cheese", "Butter"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Sandwiches"
+  },
+  {
+    "id": 20,
+    "name": "BLT Sandwich",
+    "description": "A sandwich with bacon, lettuce, and tomato",
+    "price": 4.99,
+    "extras": [
+      { "name": "Extra Bacon", "price": 1.5 }
+    ],
+    "ingredients": ["Bacon", "Lettuce", "Tomato", "Bread", "Mayo"],
+    "allergens": ["Gluten"],
+    "category": "Sandwiches"
+  },
+  {
+    "id": 21,
+    "name": "Turkey Club Sandwich",
+    "description": "A sandwich with turkey, bacon, lettuce, and tomato",
+    "price": 5.49,
+    "extras": [
+      { "name": "Extra Bacon", "price": 1.5 }
+    ],
+    "ingredients": ["Turkey", "Bacon", "Lettuce", "Tomato", "Bread", "Mayo"],
+    "allergens": ["Gluten"],
+    "category": "Sandwiches"
+  },
+  {
+    "id": 22,
+    "name": "Veggie Burger",
+    "description": "A burger with a vegetable patty, lettuce, and tomato",
+    "price": 4.99,
+    "extras": [
+      { "name": "Cheese", "price": 0.5 }
+    ],
+    "ingredients": ["Vegetable Patty", "Lettuce", "Tomato", "Bun"],
+    "allergens": ["Gluten"],
+    "category": "Burgers"
+  },
+  {
+    "id": 23,
+    "name": "Buffalo Wings",
+    "description": "Spicy buffalo wings with a side of ranch",
+    "price": 6.99,
+    "extras": [
+      { "name": "Extra Sauce", "price": 0.5 }
+    ],
+    "ingredients": ["Chicken Wings", "Buffalo Sauce", "Ranch"],
+    "allergens": ["Dairy"],
+    "category": "Sides"
+  },
+  {
+    "id": 24,
+    "name": "Onion Rings",
+    "description": "Crispy fried onion rings",
+    "price": 3.49,
+    "ingredients": ["Onions", "Breading", "Oil"],
+    "allergens": ["Gluten"],
+    "category": "Sides"
+  },
+  {
+    "id": 25,
+    "name": "Mozzarella Sticks",
+    "description": "Fried mozzarella sticks with marinara sauce",
+    "price": 4.99,
+    "extras": [
+      { "name": "Extra Marinara", "price": 0.5 }
+    ],
+    "ingredients": ["Mozzarella", "Breading", "Oil", "Marinara Sauce"],
+    "allergens": ["Gluten", "Dairy"],
+    "category": "Sides"
+  },
+  {
+    "id": 26,
+    "name": "Iced Tea",
+    "description": "Refreshing iced tea",
+    "price": 1.99,
+    "ingredients": ["Tea", "Ice", "Lemon"],
+    "allergens": [],
+    "category": "Drinks"
+  },
+  {
+    "id": 27,
+    "name": "Lemonade",
+    "description": "Freshly squeezed lemonade",
+    "price": 2.49,
+    "ingredients": ["Lemon", "Sugar", "Water"],
+    "allergens": [],
+    "category": "Drinks"
+  },
+  {
+    "id": 28,
+    "name": "Fruit Salad",
+    "description": "A mix of fresh fruits",
+    "price": 3.99,
+    "ingredients": ["Apple", "Banana", "Grapes", "Orange"],
+    "allergens": [],
+     "category": "Salads"
+  },
+  {
+    "id": 29,
+    "name": "Pancakes",
+    "description": "Fluffy pancakes with syrup",
+    "price": 4.49,
+    "extras": [
+      { "name": "Blueberries", "price": 0.5 },
+      { "name": "Chocolate Chips", "price": 0.5 }
+    ],
+    "ingredients": ["Flour", "Eggs", "Milk", "Syrup"],
+    "allergens": ["Gluten", "Dairy", "Eggs"],
+    "category": "Breakfast"
+  },
+  {
+    "id": 30,
+    "name": "Omelette",
+    "description": "A three-egg omelette with cheese and ham",
+    "price": 5.99,
+    "extras": [
+      { "name": "Mushrooms", "price": 0.5 },
+      { "name": "Spinach", "price": 0.5 }
+    ],
+    "ingredients": ["Eggs", "Cheese", "Ham"],
+    "allergens": ["Dairy", "Eggs"],
+    "category": "Breakfast"
   }
 ]

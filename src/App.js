@@ -10,25 +10,28 @@ import Confirmation from './components/Confirmation';
 import { OrderProvider } from './context/OrderContext';
 import './App.css';
 
+
 function App() {
     const [selectedCategory, setSelectedCategory] = useState('');
     const location = useLocation();
 
-    const isSpecialPage = ['/order-summary', '/payment', '/confirmation', '/'].includes(location.pathname);
+    const isSpecialPage = ['/', '/order-summary', '/payment', '/confirmation'].includes(location.pathname);
+
+
 
     return (
         <OrderProvider>
             <div className="App flex flex-col min-h-screen">
                 <header className="bg-yellow-500 p-4">
-                    <img src="/images/logo.png" alt="Logo" className="mx-auto" />
+                    <img src="/images/logo.png" alt="Logo" />
                 </header>
-                <div className={`flex flex-1 ${isSpecialPage ? 'justify-center' : ''}`}>
+                <div className={`flex flex-1 ${isSpecialPage ? 'fullscreen-content' : ''}`}>
                     {!isSpecialPage && (
                         <aside className="w-1/5 bg-gray-100 p-4">
                             <Navigation setSelectedCategory={setSelectedCategory} />
                         </aside>
                     )}
-                    <main className={`${isSpecialPage ? 'w-full max-w-3xl' : 'w-3/5'} p-4`}>
+                    <main className={`${isSpecialPage ? 'w-full max-w-3xl content-wrapper' : 'w-3/5 p-4'}`}>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/menu" element={<Menu selectedCategory={selectedCategory} />} />
@@ -43,13 +46,6 @@ function App() {
                         </div>
                     )}
                 </div>
-                {!isSpecialPage && (
-                    <footer className="p-4">
-                        <button className="bg-red-500 text-white p-2 rounded-lg mx-auto block">
-                            Cancel Order
-                        </button>
-                    </footer>
-                )}
             </div>
         </OrderProvider>
     );
